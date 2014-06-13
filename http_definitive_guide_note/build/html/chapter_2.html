@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. URL与资源 &mdash; HttpDefinitiveGuide 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HttpDefinitiveGuide 1.0 documentation" href="index.html" />
+    <link rel="next" title="3. HTTP报文" href="chapter_3.html" />
+    <link rel="prev" title="1. HTTP概述" href="chapter_1.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter_3.html" title="3. HTTP报文"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="chapter_1.html" title="1. HTTP概述"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HttpDefinitiveGuide 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="url">
+<h1>2. URL与资源<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h1>
+<img alt="_images/url.png" src="_images/url.png" />
+<div class="section" id="id1">
+<h2>2.1. URL语法<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>大多数URL的格式：</p>
+<blockquote>
+<div>&lt;scheme&gt;://&lt;user&gt;:&lt;password&gt;&#64;&lt;host&gt;:&lt;port&gt;/&lt;path&gt;;&lt;params&gt;?&lt;query&gt;#&lt;frag&gt;</div></blockquote>
+<p>其中最重要的是scheme, host, path。</p>
+<img alt="_images/url_format.png" src="_images/url_format.png" />
+</div>
+<div class="section" id="id2">
+<h2>2.2. 相对URL<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>有时候网页里面的URL不是绝对路径的，
+那么就会有相应的算法将之转换成绝对URL。</p>
+<img alt="_images/relative_url.png" src="_images/relative_url.png" />
+</div>
+<div class="section" id="id3">
+<h2>2.3. 转义字符<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>为了在URL中表示各种不安全的字符，
+需要在URL用转义字符来表示这些不安全的字符。</p>
+<p>这种转义表示法包含一个百分号，后面跟着两个表示字符ASCII码的16进制数。</p>
+<table border="1" class="docutils">
+<caption>一些编码字符举例</caption>
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">字符</th>
+<th class="head">ASCII码</th>
+<th class="head">示例URL</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>~</td>
+<td>126(0x7E)</td>
+<td><a class="reference external" href="http://www.joes-hardware.com/%7Ejoe">http://www.joes-hardware.com/%7Ejoe</a></td>
+</tr>
+<tr class="row-odd"><td>空格</td>
+<td>32(0x20)</td>
+<td><a class="reference external" href="http://www.joes-hardware.com/more%20tools.html">http://www.joes-hardware.com/more%20tools.html</a></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id4">
+<h2>2.4. 保留字符<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>在URL中，有几个字符被保留起来，有特殊的用途。</p>
+<img alt="_images/reserved_and_restricted_characters.png" src="_images/reserved_and_restricted_characters.png" />
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">2. URL与资源</a><ul>
+<li><a class="reference internal" href="#id1">2.1. URL语法</a></li>
+<li><a class="reference internal" href="#id2">2.2. 相对URL</a></li>
+<li><a class="reference internal" href="#id3">2.3. 转义字符</a></li>
+<li><a class="reference internal" href="#id4">2.4. 保留字符</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="chapter_1.html"
+                        title="previous chapter">1. HTTP概述</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter_3.html"
+                        title="next chapter">3. HTTP报文</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chapter_2.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter_3.html" title="3. HTTP报文"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="chapter_1.html" title="1. HTTP概述"
+             >previous</a> |</li>
+        <li><a href="index.html">HttpDefinitiveGuide 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, ChenJie.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. HTTP概述 &mdash; HttpDefinitiveGuide 1.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="HttpDefinitiveGuide 1.0 documentation" href="index.html" />
+    <link rel="next" title="2. URL与资源" href="chapter_2.html" />
+    <link rel="prev" title="Welcome to HttpDefinitiveGuide’s documentation!" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="chapter_2.html" title="2. URL与资源"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to HttpDefinitiveGuide’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">HttpDefinitiveGuide 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="http">
+<h1>1. HTTP概述<a class="headerlink" href="#http" title="Permalink to this headline">¶</a></h1>
+<p>这一章主要介绍了HTTP协议的一些基本概念，
+这样大家会对HTTP有一个基本的了解。</p>
+<div class="section" id="web">
+<h2>1.1. Web客户端和服务器<a class="headerlink" href="#web" title="Permalink to this headline">¶</a></h2>
+<img alt="_images/web_clients_and_servers.png" src="_images/web_clients_and_servers.png" />
+</div>
+<div class="section" id="id1">
+<h2>1.2. Web资源<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>资源既可以是静态文件，也可以是根据需求动态生成的。</p>
+<img alt="_images/web_resources.png" src="_images/web_resources.png" />
+</div>
+<div class="section" id="id2">
+<h2>1.3. 媒体类型<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>资源多了，就要分类。HTTP采用了MIME类型。
+MIME类型原来是在邮件里面使用的，由于它很成熟也很好用，
+所以HTTP也采用了。</p>
+<p>Web服务器会为所有的HTTP对象数据附加一个MIME类型。</p>
+<p>当浏览器从服务器中取回一个对象时，会去查看相关的MIME类型，
+这样它就知道如何处理这个对象了。</p>
+<p>常用MIME类型举例：</p>
+<ul class="simple">
+<li>HTML格式的文本文档：text/tml</li>
+<li>普通的ASCII文本文档：text/plain</li>
+<li>JPEG格式的图片：image/jpeg</li>
+</ul>
+</div>
+<div class="section" id="uri">
+<h2>1.4. URI<a class="headerlink" href="#uri" title="Permalink to this headline">¶</a></h2>
+<p>Uniform Resource Idenifier: 统一资源标识符</p>
+<p>URI有两种形式：URL和URN。</p>
+<div class="section" id="url">
+<h3>1.4.1. URL<a class="headerlink" href="#url" title="Permalink to this headline">¶</a></h3>
+<p>统一资源定位符，它描述了一台特定服务器上某资源的特定位置。</p>
+<p>大部分URL都遵循一种标准格式：</p>
+<ul class="simple">
+<li>第一部分：方案(scheme)，说明了使用的协议类型。</li>
+<li>第二部分：服务器地址。</li>
+<li>其余部分：服务器上的某个资源。</li>
+</ul>
+</div>
+<div class="section" id="urn">
+<h3>1.4.2. URN<a class="headerlink" href="#urn" title="Permalink to this headline">¶</a></h3>
+<p>统一资源名，作为特定内容的唯一名称使用，与资源的所在地无关。
+现实中用的很少，还处于试验阶段。</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>1.5. 事务<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>一个HTTP事务由一条（客户端发给服务器）的请求消息和
+一个（从服务器发回客户端）的响应消息组成。</p>
+<p>这种通信是通过名为HTTP报文（HTTP message）的格式化数据块进行的。</p>
+<img alt="_images/http_transactions.png" src="_images/http_transactions.png" />
+</div>
+<div class="section" id="id4">
+<h2>1.6. 方法<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>每条HTTP请求报文都包含一个方法，这些叫做HTTP方法（HTTP method）。</p>
+<p>这些方法会告诉服务器要执行什么动作。</p>
+<table border="1" class="docutils">
+<caption>常见的HTTP方法</caption>
+<colgroup>
+<col width="33%" />
+<col width="67%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">方法名</th>
+<th class="head">说明</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>GET</td>
+<td>获取资源</td>
+</tr>
+<tr class="row-odd"><td>PUT</td>
+<td>更新资源</td>
+</tr>
+<tr class="row-even"><td>DELETE</td>
+<td>删除资源</td>
+</tr>
+<tr class="row-odd"><td>POST</td>
+<td>添加资源</td>
+</tr>
+<tr class="row-even"><td>HEAD</td>
+<td>获取HTTP响应首部</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="id5">
+<h2>1.7. 状态码<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<p>每条HTTP响应报文返回时都会携带一个状态码。</p>
+<p>状态码是一个三位数字，用来告知客户端请求是否成功，
+或者是否需要采取其它动作。</p>
+<p>HTTP的响应报文中除了会返回状态码之外，还会同时返回对应的原因短语。</p>
+<p>常见HTTP状态码：</p>
+<ul class="simple">
+<li>200 OK：文档正常返回</li>
+<li>302 Redirect：重定向，到其它地方获取资源</li>
+<li>404 Not Found：没找到，无法找到该资源</li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2>1.8. 报文<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>HTTP报文是由一行行的简单字符串组成的。HTTP报文都是纯文本，非二进制代码。</p>
+<img alt="_images/http_messages.png" src="_images/http_messages.png" />
+<p>HTTP报文分为：</p>
+<ul class="simple">
+<li>请求报文（request message）</li>
+<li>响应报文（response message）</li>
+</ul>
+<p>HTTP报文包括以下三个部分：</p>
+<ul>
+<li><p class="first">起始行</p>
+<p>报文的第一行就是起始行，
+在请求报文里说明要做些什么，
+在响应报文中说明出现了什么情况。</p>
+</li>
+<li><p class="first">首部字段</p>
+<p>起始行后面有零个或多个首部字段。
+每个字段都包含一个名字和一个值。两者用：号分割。
+首部以一个空行结束。</p>
+</li>
+<li><p class="first">主体</p>
+<p>空行之后就是可选的报文主体了。其中包含了所有类型的数据。
+请求报文主体中包含了要发给服务器的数据；响应报文主体中包含了
+要返回客户端的数据。主体中可以包含任意的二进制数据。</p>
+</li>
+</ul>
+<img alt="_images/http_get_transaction.png" src="_images/http_get_transaction.png" />
+</div>
+<div class="section" id="id7">
+<h2>1.9. 连接<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<p>HTTP是个应用层协议，它将联网的具体细节交给了TCP/IP协议。
+所以在HTTP客户端向服务器发送报文之前，需要用IP地址及端口号在
+客户端与服务器之间建立一条TCP/IP连接。</p>
+<p>之前有讲过，客户端是通过URL来请求资源的。
+所以IP地址及端口也是从URL中获取到的。</p>
+<p>下面简单介绍一下浏览器的连接步骤：</p>
+<ul class="simple">
+<li>浏览器从URL中解析出服务器的主机名/域名</li>
+<li>浏览器将主机名/域名通过DNS服务转换成服务器的IP地址</li>
+<li>浏览器将端口号从URL中解析出来（没有则用默认的端口号）</li>
+<li>浏览器建立一条与服务器的TCP连接</li>
+<li>浏览器向服务器发送一条HTTP请求报文</li>
+<li>服务器向浏览器回送一条HTTP响应报文</li>
+<li>浏览器关闭连接，渲染并显示文档</li>
+</ul>
+<img alt="_images/http_connection.png" src="_images/http_connection.png" />
+</div>
+<div class="section" id="id8">
+<h2>1.10. Web的结构组件<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id9">
+<h3>1.10.1. 代理<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>位于客户端和服务器之间。</p>
+<p>一般的应用场景是，客户端无法访问某些服务器，但是可以连接到某台设备，
+而这台设备可以访问这些服务器，那么就可以在这个设备上开启一个代理服务器，
+客户端通过走这台设备的代理就可以访问那些它之前无法访问的服务器了。</p>
+<img alt="_images/http_proxy.png" src="_images/http_proxy.png" />
+</div>
+<div class="section" id="id10">
+<h3>1.10.2. 缓存<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>它是一种特殊的代理服务器，可以将经过代理传送的常用文档保存下来，
+当有其它客户端或者该客户端再次请求相同文档时，
+就可以直接将缓存的文档返回了。</p>
+<img alt="_images/http_proxy_cache.png" src="_images/http_proxy_cache.png" />
+</div>
+<div class="section" id="id11">
+<h3>1.10.3. 网关<a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h3>
+<p>也是一种特殊的代理服务器中，通常是将HTTP请求转换成其它协议的请求。</p>
+<img alt="_images/http_proxy_gateway.png" src="_images/http_proxy_gateway.png" />
+</div>
+<div class="section" id="id12">
+<h3>1.10.4. 隧道<a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h3>
+<p>对HTTP通信报文进行盲转发的特殊代理。
+在一条或者多条HTTP连接上转发非HTTP数据，转发时不会窥探数据。</p>
+<p>常用的就是HTTPS，通过HTTP连接承载加密安全套接字层（SSL）。</p>
+<img alt="_images/http_tunnel.png" src="_images/http_tunnel.png" />
+</div>
+<div class="section" id="agent">
+<h3>1.10.5. Agent代理<a class="headerlink" href="#agent" title="Permalink to this headline">¶</a></h3>
+<p>是指代表客户发起HTTP请求的客户端程序。</p>
+<p>最有代表性的就是：浏览器。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">1. HTTP概述</a><ul>
+<li><a class="reference internal" href="#web">1.1. Web客户端和服务器</a></li>
+<li><a class="reference internal" href="#id1">1.2. Web资源</a></li>
+<li><a class="reference internal" href="#id2">1.3. 媒体类型</a></li>
+<li><a class="reference internal" href="#uri">1.4. URI</a><ul>
+<li><a class="reference internal" href="#url">1.4.1. URL</a></li>
+<li><a class="reference internal" href="#urn">1.4.2. URN</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#id3">1.5. 事务</a></li>
+<li><a class="reference internal" href="#id4">1.6. 方法</a></li>
+<li><a class="reference internal" href="#id5">1.7. 状态码</a></li>
+<li><a class="reference internal" href="#id6">1.8. 报文</a></li>
+<li><a class="reference internal" href="#id7">1.9. 连接</a></li>
+<li><a class="reference internal" href="#id8">1.10. Web的结构组件</a><ul>
+<li><a class="reference internal" href="#id9">1.10.1. 代理</a></li>
+<li><a class="reference internal" href="#id10">1.10.2. 缓存</a></li>
+<li><a class="reference internal" href="#id11">1.10.3. 网关</a></li>
+<li><a class="reference internal" href="#id12">1.10.4. 隧道</a></li>
+<li><a class="reference internal" href="#agent">1.10.5. Agent代理</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Welcome to HttpDefinitiveGuide&#8217;s documentation!</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="chapter_2.html"
+                        title="next chapter">2. URL与资源</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/chapter_1.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="chapter_2.html" title="2. URL与资源"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to HttpDefinitiveGuide’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">HttpDefinitiveGuide 1.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2014, ChenJie.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.2.
+    </div>
+  </body>
+</html>
